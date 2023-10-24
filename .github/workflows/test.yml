@@ -65,3 +65,7 @@ jobs:
     - name: Run Cypress tests
       run: npm run cypress:run
       working-directory: ./client-app
+
+    - name: Stop React development server
+      run: pkill node
+      working-directory: ./client-app
