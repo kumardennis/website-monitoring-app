@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Setup Python and install backend dependencies
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Set up virtual environment
+      run: |
+        python -m venv website-monitor-app
+        echo ".website-monitor-app/bin/activate" >> $GITHUB_ENV
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r /app/requirements.txt
+
+    # Start the backend server
+    - name: Start backend server
+      run: |
+        # Use the command to start your FastAPI server
+        uvicorn main:app --reload &
+      working-directory: /app
+
+    # Setup Node.js and install frontend dependencies
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install Node dependencies
+      run: npm ci
+      working-directory: /client-app
+
+    # Run Jest tests
+    - name: Run Jest tests
+      run: npm run test
+      working-directory: /client-app
+
+    # Run Cypress tests
+    - name: Run Cypress tests
+      run: npm run cypress:run
+      working-directory: /client-app 
