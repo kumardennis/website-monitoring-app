@@ -36,7 +36,6 @@ jobs:
       run: |
         # Use the command to start your FastAPI server
         uvicorn main:app --reload &
-      working-directory: ./app
 
     # Setup Node.js and install frontend dependencies
     - name: Set up Node.js
@@ -46,14 +45,14 @@ jobs:
 
     - name: Install Node dependencies
       run: npm ci
-      working-directory: /client-app
+      working-directory: ./client-app
 
     # Run Jest tests
     - name: Run Jest tests
       run: npm run test
-      working-directory: /client-app
+      working-directory: ./client-app
 
     # Run Cypress tests
     - name: Run Cypress tests
       run: npm run cypress:run
-      working-directory: /client-app
+      working-directory: ./client-app
