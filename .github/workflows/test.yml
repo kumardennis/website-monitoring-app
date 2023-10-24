@@ -44,7 +44,16 @@ jobs:
         node-version: '18'
 
     - name: Install Node dependencies
-      run: npm ci
+      run: npm install
+      working-directory: ./client-app
+
+    - name: Start React development server
+      run: |
+        npm start &
+      working-directory: ./client-app
+
+    - name: Wait for React server to be ready
+      run: npx wait-on http://localhost:3000
       working-directory: ./client-app
 
     # Run Jest tests
