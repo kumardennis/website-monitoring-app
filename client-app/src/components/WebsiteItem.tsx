@@ -9,6 +9,8 @@ type PropTypes = {
 };
 
 export const WebsiteItem = ({ websiteUrl, status, onDelete }: PropTypes) => {
+  /* TODO: add isLoading state */
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "ok":

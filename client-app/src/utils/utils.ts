@@ -1,4 +1,3 @@
-import { QueryClient } from "@tanstack/react-query";
 import { GetWebsitesResponseModel } from "models/ServiceModels";
 import toast from "react-hot-toast";
 import { WebsiteService } from "services/websiteService";

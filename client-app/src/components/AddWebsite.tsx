@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import { addWebsite, checkIfAtleastHttp } from "utils/utils";
 
 export const AddWebsite = () => {
+  /* TODO: add isLoading state */
+
   const queryClient = useQueryClient();
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +29,9 @@ export const AddWebsite = () => {
     inputRef.current.value = "";
   };
 
-  const ifEnterThenSubmitForm = async (event: KeyboardEvent<HTMLInputElement>) => {
+  const ifEnterThenSubmitForm = async (
+    event: KeyboardEvent<HTMLInputElement>
+  ) => {
     if (event.key === "Enter") await handleAddWebsite();
   };
 
