@@ -1,0 +1,18 @@
+FROM node:18-alpine3.14
+
+WORKDIR /
+
+# Copy the dependencies file to the working directory
+COPY /package*.json ./
+
+# Install any dependencies
+RUN npm install
+
+# Copy the content of the local `client-app` directory to the working directory
+COPY . .
+
+# Expose port 3000 for React app
+EXPOSE 3000
+
+# Start React development server
+CMD ["npm", "start"]

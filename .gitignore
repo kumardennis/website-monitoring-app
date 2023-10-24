@@ -1,0 +1,46 @@
+# Python-specific
+*.pyc
+*.pyo
+*.egg-info/
+__pycache__/
+*.pyd
+*.swp
+*.swo
+
+# Virtual environments
+venv/
+*.venv
+*.venv/
+venv.bak/
+*.virtenv
+.env
+.venv/
+.env/
+.virtualenv/
+website-monitor-app/
+
+# IDEs and editors
+# JetBrains IDEs (PyCharm, IntelliJ)
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite
+
+# FastAPI specific
+# If you have any sensitive information or specific directories/files to ignore, add them here
+# .env.local
+# .db_secret
+
+# Other files and directories to ignore
+# .migrations/
