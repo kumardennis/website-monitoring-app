@@ -52,8 +52,18 @@ jobs:
         npm start &
       working-directory: ./client-app
 
+    - name: Display React server logs
+      run: cat client-app.log
+
     - name: Wait for React server to be ready
-      run: npx wait-on http://localhost:3000
+      run: |
+        for i in {1..30}; do
+          if curl -s http://localhost:3000 > /dev/null; then
+            break
+          fi
+          echo "Waiting for React server to be ready..."
+          sleep 2
+        done
       working-directory: ./client-app
 
     # Run Jest tests
