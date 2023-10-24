@@ -23,7 +23,8 @@ jobs:
     - name: Set up virtual environment
       run: |
         python -m venv website-monitor-app
-        echo "website-monitor-app/bin/activate" >> $GITHUB_ENV
+      env:
+        VENV_PATH: website-monitor-app/bin/activate
 
     - name: Install dependencies
       run: |
