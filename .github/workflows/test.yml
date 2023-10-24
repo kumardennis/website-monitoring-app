@@ -29,14 +29,14 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install -r /app/requirements.txt # Adjust this path
+        pip install -r ./app/requirements.txt # Adjust this path
 
     # Start the backend server
     - name: Start backend server
       run: |
         # Use the command to start your FastAPI server
         uvicorn main:app --reload &
-      working-directory: /app
+      working-directory: ./app
 
     # Setup Node.js and install frontend dependencies
     - name: Set up Node.js
