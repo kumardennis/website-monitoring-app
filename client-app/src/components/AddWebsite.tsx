@@ -36,18 +36,18 @@ export const AddWebsite = () => {
   };
 
   return (
-    <div className="flex flex-row justify-center items-center">
+    <div className='flex flex-row justify-center items-center'>
       <input
         onKeyDown={ifEnterThenSubmitForm}
         ref={inputRef}
-        aria-label="input-add-website"
-        className="rounded border px-4 py-2 bg-white"
-        placeholder="Enter website to add..."
+        aria-label='input-add-website'
+        className='rounded border px-4 py-2 bg-white'
+        placeholder='Enter website to add...'
       />
-      <button aria-label="button-add-website" onClick={handleAddWebsite}>
+      <button aria-label='button-add-website' onClick={handleAddWebsite}>
         <FontAwesomeIcon
           className={`ms-3 ${"color-success cursor-pointer"}`}
-          size="xl"
+          size='xl'
           icon={faCirclePlus}
         />
       </button>

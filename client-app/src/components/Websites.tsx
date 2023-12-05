@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { WebsiteItem } from "./WebsiteItem";
 import { deleteWebsite, fetchWebsites } from "utils/utils";
+import { TIME_CONST } from "utils/constants";
 
 export const Websites = () => {
   const queryClient = useQueryClient();
@@ -8,7 +9,7 @@ export const Websites = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["wesbites"],
     queryFn: fetchWebsites,
-    refetchInterval: 1000,
+    refetchInterval: TIME_CONST.MINUTE,
   });
 
   const handleDeleteWebsite = async (url: string) => {
@@ -21,7 +22,7 @@ export const Websites = () => {
     <span>Loading...</span>
   ) : (
     <div
-      className="flex flex-col items-center mx-auto p-3"
+      className='flex flex-col items-center mx-auto p-3'
       style={{ minWidth: "600px", maxWidth: "600px" }}
     >
       {data?.data &&

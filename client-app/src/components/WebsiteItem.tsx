@@ -1,6 +1,7 @@
-import { faCircle, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { StatusModel } from "models/StatusModels";
+import { faCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { StatusModel } from 'models/StatusModels';
+import { WEBSITE_STATUS } from 'utils/constants';
 
 type PropTypes = {
   websiteUrl: string;
@@ -13,13 +14,13 @@ export const WebsiteItem = ({ websiteUrl, status, onDelete }: PropTypes) => {
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "ok":
+      case WEBSITE_STATUS.OK:
         return <FontAwesomeIcon icon={faCircle} className="color-success" />;
 
-      case "slow":
+      case WEBSITE_STATUS.SLOW:
         return <FontAwesomeIcon icon={faCircle} className="color-warning" />;
 
-      case "error":
+      case WEBSITE_STATUS.ERROR:
         return <FontAwesomeIcon icon={faCircle} className="color-danger" />;
 
       default:
